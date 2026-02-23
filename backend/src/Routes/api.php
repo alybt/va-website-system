@@ -1,0 +1,1 @@
+$router->post('/api/login', [AuthController::class, 'login']);
