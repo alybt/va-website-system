@@ -3,6 +3,12 @@ project/
 │ ├── public/
 │ │ └── Button.js
 | ├── src/
+| | ├── Config/
+| | ├── Controllers/
+| | ├── Middleware/
+| | ├── Models/
+| | ├── Repositories/
+| | └── Services/
 │ └── vendor/
 ├── frontend/
 │ ├── public/
