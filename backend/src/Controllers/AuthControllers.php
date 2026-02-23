@@ -29,4 +29,5 @@ class AuthController {
             echo json_encode(["message" => "Invalid email or password"]);
         }
     }
+    
 }

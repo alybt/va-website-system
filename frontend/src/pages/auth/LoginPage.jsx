@@ -1,8 +1,8 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import api from '../../api/axios';
 
 const LoginPage = () => {
-   
   const [formData, setFormData] = useState({ username: '', password: '' });
   const [error, setError] = useState('');
 
@@ -11,7 +11,6 @@ const LoginPage = () => {
     setError('');
 
     try {
-       
       const response = await api.post('/login', formData);
       console.log('Login Success:', response.data);
       alert('Logged in successfully!');
@@ -58,6 +57,19 @@ const LoginPage = () => {
         >
           Sign In
         </button>
+
+        {/* --- ADDED REGISTER LINK BELOW --- */}
+        <div className="mt-6 text-center">
+          <p className="text-sm text-gray-600">
+            Don't have an account?{' '}
+            <Link 
+              to="/register" 
+              className="text-blue-600 font-semibold hover:underline"
+            >
+              Register
+            </Link>
+          </p>
+        </div>
       </form>
     </div>
   );

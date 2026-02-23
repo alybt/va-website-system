@@ -21,4 +21,22 @@ class AuthService {
 
         return false;
     }
+
+    public function register(array $data) {
+        // 1. Check if user exists
+        if ($this->userRepository->exists($data['username'])) {
+            throw new \Exception("Username already taken");
+        }
+
+        // 2. Map data to the User Model
+        $user = new User();
+        $user->username = $data['username'];
+        $user->password = password_hash($data['password'], PASSWORD_BCRYPT);
+        $user->role = $data['role'] ?? 'writer';
+
+        // 3. Save via Repository
+        return $this->userRepository->create($user);
+    }
+
+
 }

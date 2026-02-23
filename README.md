@@ -1,7 +1,7 @@
 project/
 ├── backend/
 │ ├── public/
-│ │ └── Button.js
+│ │ └── index.html
 | ├── src/
 | | ├── Config/
 | | ├── Controllers/

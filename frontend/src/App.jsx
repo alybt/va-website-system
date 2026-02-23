@@ -1,15 +1,18 @@
-import { useState } from 'react' 
-import './App.css'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import LoginPage from './pages/auth/LoginPage'
-
+import RegisterPage from './pages/auth/Register'
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div className="App">
-      <LoginPage />
-    </div>
+    <Router>
+      <Routes>
+        {/* This makes the LoginPage show up at http://localhost:5173/ */}
+        <Route path="/" element={<LoginPage />} />
+        
+        {/* This will be your register page once you create it */}
+        <Route path="/register" element={<RegisterPage />} />
+      </Routes>
+    </Router>
   );
 }
 
-export default App
+export default App;
