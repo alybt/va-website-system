@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import api from '../../api/axios';
+import styles from './LoginPage.module.css'; // Import the module
 
 const LoginPage = () => {
   const [formData, setFormData] = useState({ username: '', password: '' });
@@ -20,52 +21,42 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gray-100">
-      <form 
-        onSubmit={handleSubmit} 
-        className="w-full max-w-md bg-white p-8 rounded-lg shadow-md"
-      >
-        <h2 className="text-2xl font-bold mb-6 text-center text-gray-800">Login</h2>
+    <div className={styles.container}>
+      <form onSubmit={handleSubmit} className={styles.formCard}>
+        <h2 className={styles.title}>Login</h2>
         
-        {error && <p className="text-red-500 text-sm mb-4 text-center">{error}</p>}
+        {error && <p className={styles.errorMessage}>{error}</p>}
 
-        <div className="mb-4">
-          <label className="block text-gray-700 mb-2">Username: </label>
+        <div className={styles.inputGroup}>
+          <label className={styles.label}>Username: </label>
           <input
             type="text" 
-            className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className={styles.inputField}
             value={formData.username}
             onChange={(e) => setFormData({...formData, username: e.target.value})}
             required
           />
         </div>
 
-        <div className="mb-6">
-          <label className="block text-gray-700 mb-2">Password: </label>
+        <div className={styles.inputGroup}>
+          <label className={styles.label}>Password: </label>
           <input
             type="password"
-            className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className={styles.inputField}
             value={formData.password}
             onChange={(e) => setFormData({...formData, password: e.target.value})}
             required
           />
         </div>
 
-        <button
-          type="submit"
-          className="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition"
-        >
+        <button type="submit" className={styles.submitBtn}>
           Sign In
         </button>
 
-        {/* --- ADDED REGISTER LINK BELOW --- */}
-        <div className="mt-6 text-center">
-          <p className="text-sm text-gray-600">
+        <div className={styles.footer}>
+          <p>
             Don't have an account?{' '}
-            <Link 
-              to="/register" 
-              className="text-blue-600 font-semibold hover:underline"
-            >
+            <Link to="/register" className={styles.link}>
               Register
             </Link>
           </p>
