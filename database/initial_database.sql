@@ -13,7 +13,7 @@ CREATE TABLE users (
     password VARCHAR(255) NOT NULL,
     bio TEXT,
     status ENUM('pending', 'active', 'suspended') DEFAULT 'pending',
-    role ENUM('admin', 'writer', 'host') NOT NULL,
+    role ENUM('admin', 'user') NOT NULL,
     last_active TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 
     is_deleted BOOLEAN DEFAULT FALSE,
