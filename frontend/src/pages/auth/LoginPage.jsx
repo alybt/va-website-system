@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import api from '../../api/axios';
-import styles from './LoginPage.module.css'; // Import the module
+import styles from './LoginPage.module.css'; 
 
 const LoginPage = () => {
   const [formData, setFormData] = useState({ username: '', password: '' });
