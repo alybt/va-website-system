@@ -1,0 +1,13 @@
+# Block specific bad User-Agents
+RewriteEngine On
+RewriteCond %{HTTP_USER_AGENT} (badbot|scrapper|python|curl|wget|libwww|java) [NC]
+RewriteRule .* - [F,L]
+
+# Block common AI crawlers if you don't want your data scraped
+RewriteCond %{HTTP_USER_AGENT} (CCBot|GPTBot|ChatGPT-User|Omgilibot|FacebookBot) [NC]
+RewriteRule .* - [F,L]
+
+# Block AI Crawlers
+RewriteEngine On
+RewriteCond %{HTTP_USER_AGENT} (Bytespider|GPTBot|ClaudeBot|ImagesiftBot|CCBot|ChatGPT-User|omgili|Diffbot|Claude-Web|PerplexityBot) [NC]
+RewriteRule ^ - [F,L]

@@ -28,12 +28,13 @@ class RegisterController {
 
             // 4. Hash the password
             $hashedPassword = password_hash($data['password'], PASSWORD_BCRYPT);
+            $username = htmlspecialchars(strip_tags($data['username']));
 
             // 5. Prepare and Execute
             $query = "INSERT INTO users (username, password, role, status) VALUES (?, ?, 'user', 'pending')";
             $stmt = $db->prepare($query);
             $stmt->execute([
-                $data['username'], 
+                $username, 
                 $hashedPassword 
             ]);
 
