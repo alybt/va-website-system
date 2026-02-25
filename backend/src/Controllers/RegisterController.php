@@ -30,12 +30,11 @@ class RegisterController {
             $hashedPassword = password_hash($data['password'], PASSWORD_BCRYPT);
 
             // 5. Prepare and Execute
-            $query = "INSERT INTO users (username, password, role, status) VALUES (?, ?, '?', 'pending')";
+            $query = "INSERT INTO users (username, password, role, status) VALUES (?, ?, 'user', 'pending')";
             $stmt = $db->prepare($query);
             $stmt->execute([
                 $data['username'], 
-                $hashedPassword, 
-                $data['role'] ?? 'writer'
+                $hashedPassword 
             ]);
 
             // 6. Success!

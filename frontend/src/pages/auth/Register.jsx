@@ -2,7 +2,7 @@ import { useState } from 'react';
 import api from '../../api/axios';
 
 const RegisterPage = () => {
-  const [formData, setFormData] = useState({ username: '', password: '', role: 'writer' });
+  const [formData, setFormData] = useState({ username: '', password: '', role: 'user' });
   const [msg, setMsg] = useState('');
 
   const handleRegister = async (e) => {
@@ -37,13 +37,7 @@ const RegisterPage = () => {
           onChange={(e) => setFormData({...formData, password: e.target.value})}
         />
 
-        <select 
-          className="w-full p-2 mb-6 bg-gray-700 rounded"
-          onChange={(e) => setFormData({...formData, role: e.target.value})}
-        >
-          <option value="writer">Writer</option>
-          <option value="host">Host</option>
-        </select>
+         
 
         <button type='submit' className="w-full bg-green-600 p-2 rounded hover:bg-green-700 transition">
           Register
