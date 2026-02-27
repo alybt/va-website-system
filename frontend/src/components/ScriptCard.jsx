@@ -15,8 +15,8 @@ const ScriptCard = ({ script = {}, userId }) => {
   const gStyle = GENRE_PALETTES[genre] || GENRE_PALETTES.Default;
 
   return (
-    <div className={styles.card}>
-      {/* ── Poster Section ── */}
+    <div className={styles.card}> 
+    
       <div className={styles.poster}>
         <div className={styles.paperOverlay} />
         <ScrollText size={60} color="rgba(212,175,95,0.2)" style={{ position: "absolute" }} />
@@ -39,9 +39,8 @@ const ScriptCard = ({ script = {}, userId }) => {
             initialIsFavorited={script.is_user_favorite} 
           />
         </div>
-      </div>
+      </div> 
 
-      {/* ── Content Body ── */}
       <div className={styles.body}>
         <div className={styles.metaRow}>
           <span className="flex items-center gap-1"><Clock size={13} /> {script.runtime_minutes}m</span>
@@ -56,9 +55,8 @@ const ScriptCard = ({ script = {}, userId }) => {
         <p className={styles.authorNote}>
           "{script.author_note || "No author notes available for this piece."}"
         </p>
-      </div>
+      </div> 
 
-      {/* ── Footer Action ── */}
       <div className={styles.footer}>
         <div className={styles.castInfo}>
           <User size={12} />
