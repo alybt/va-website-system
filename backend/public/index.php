@@ -20,9 +20,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
 if ($requestUri === '/register' && $_SERVER['REQUEST_METHOD'] === 'POST') {
     $controller = new \App\Controllers\RegisterController();
     $controller->register();
+} else if ($requestUri === '/scripts' && $_SERVER['REQUEST_METHOD'] === 'GET') {
+    $controller = new \App\Controllers\ScriptController();
+    $controller->index();
 } else { 
     http_response_code(404);
     echo json_encode(["message" => "Route not found", "path" => $requestUri]);
-}
+} 
 
  

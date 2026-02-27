@@ -1,0 +1,229 @@
+ 
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lora:ital,wght@0,400;1,400&display=swap');
+ 
+.card {
+  --bg-card:          #faf7f2;
+  --bg-poster-from:   #1a1208;
+  --bg-poster-to:     #3d2b19;
+  --bg-footer:        #f5f0e8;
+  --border-card:      #e8e0d0;
+  --border-footer:    #ede5d8;
+  --text-poster:      #f5e6c0;
+  --text-body:        #5c4d3c;
+  --text-meta:        #8a7a65;
+  --text-divider:     #d1c7b7;
+  --text-cast:        #8a7a65;
+  --btn-bg:           #2c1f0e;
+  --btn-bg-hover:     #3d2b19;
+  --btn-text:         #f5e6c0;
+  --fav-bg:           rgba(255,255,255,0.15);
+  --fav-bg-hover:     rgba(255,255,255,0.25);
+  --shadow-card:      0 2px 8px rgba(0,0,0,0.06);
+  --shadow-hover:     0 15px 35px rgba(60,40,10,0.13);
+  --overlay-opacity:  0.1;
+}
+ 
+@media (prefers-color-scheme: dark) {
+  .card {
+    --bg-card:          #1c1a16;
+    --bg-poster-from:   #0d0a06;
+    --bg-poster-to:     #261c0f;
+    --bg-footer:        #161410;
+    --border-card:      #2e2a22;
+    --border-footer:    #2a261e;
+    --text-poster:      #f0ddb0;
+    --text-body:        #f0ddb0;
+    --text-meta:        #f0ddb0;
+    --text-divider:     #3d3630;
+    --text-cast:        #7a6e60;
+    --btn-bg:           #d4af5f;
+    --btn-bg-hover:     #c49a48;
+    --btn-text:         #1a1208;
+    --fav-bg:           rgba(255,255,255,0.08);
+    --fav-bg-hover:     rgba(255,255,255,0.16);
+    --shadow-card:      0 2px 12px rgba(0,0,0,0.30);
+    --shadow-hover:     0 18px 44px rgba(0,0,0,0.50);
+    --overlay-opacity:  0.06;
+  }
+}
+ 
+.card {
+  font-family: 'Lora', Georgia, serif;
+  width: 320px;
+  background-color: var(--bg-card);
+  border-radius: 12px;
+  border: 1px solid var(--border-card);
+  box-shadow: var(--shadow-card);
+  transition:
+    box-shadow 0.3s ease,
+    transform 0.3s ease,
+    background-color 0.3s ease,
+    border-color 0.3s ease;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-5px);
+}
+ 
+.poster {
+  height: 100px; 
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+  transition: background 0.3s ease;
+}
+ 
+
+.posterTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  color: var(--text-poster);
+  text-align: center;
+  margin: 0;
+  z-index: 1;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+  line-height: 1.2;
+  transition: color 0.3s ease;
+}
+ 
+.badgeContainer {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  display: flex;
+  gap: 6px;
+}
+
+.genreBadge {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  gap: 4px; 
+}
+
+.genreDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+}
+
+.favButton {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: var(--fav-bg);
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(4px);
+  transition: background 0.2s ease;
+}
+
+.favButton:hover {
+  background: var(--fav-bg-hover);
+}
+ 
+.body {
+  padding: 18px;
+  flex: 1;
+  background-color: var(--bg-card);
+  transition: background-color 0.3s ease;
+}
+
+.metaRow {
+  font-size: 12px;
+  color: var(--text-meta);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: system-ui, -apple-system, sans-serif;
+  transition: color 0.3s ease;
+}
+
+.divider {
+  color: var(--text-divider);
+  transition: color 0.3s ease;
+}
+
+.authorNote {
+  font-size: 14px;
+  color: var(--text-body);
+  line-height: 1.6;
+  margin: 0 0 4px 0;
+  font-style: italic;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color 0.3s ease;
+}
+ 
+.footer {
+  padding: 12px 18px;
+  border-top: 1px solid var(--border-footer);
+  background-color: var(--bg-footer);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.castInfo {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--text-cast);
+  font-size: 11px;
+  transition: color 0.3s ease;
+}
+
+.readButton {
+  background-color: var(--btn-bg);
+  color: var(--btn-text);
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.readButton:hover {
+  background-color: var(--btn-bg-hover);
+}
+ 
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .readButton,
+  .favButton {
+    transition: none;
+  }
+}

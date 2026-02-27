@@ -1,6 +1,8 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import LoginPage from './pages/auth/LoginPage'
 import RegisterPage from './pages/auth/Register'
+import ScriptsPage from './pages/ScriptPage';
+
 function App() {
   return (
     <Router>
@@ -10,6 +12,8 @@ function App() {
         
         {/* This will be your register page once you create it */}
         <Route path="/register" element={<RegisterPage />} />
+
+        <Route path="/scripts" element={<ScriptsPage />} />
       </Routes>
     </Router>
   );
