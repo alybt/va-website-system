@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap');
 
-/* ---------- CSS Custom Properties ---------- */
+/*  CSS Custom Properties  */
 .container {
   /* Light mode defaults */
   --bg-page:        #f0ece4;
@@ -50,7 +50,7 @@
 
 
 
-/* ---------- Page Container ---------- */
+/*  Page Container  */
 .container {
   min-height: 95vh;
   min-width: 97.5vw;
@@ -63,7 +63,6 @@
   position: relative;
   overflow: hidden;
   transition: background-color 0.3s ease;
- 
 }
 
 /* Subtle noise texture overlay */
@@ -92,7 +91,7 @@
   z-index: 0;
 }
 
-/* ---------- Form Card ---------- */
+/*  Form Card  */
 .formCard {
   position: relative;
   z-index: 1;
@@ -120,7 +119,7 @@
   }
 }
 
-/* ---------- Title ---------- */
+/*  Title  */
 .title {
   font-family: 'DM Serif Display', serif;
   font-size: 2.25rem;
@@ -137,7 +136,7 @@
   color: var(--accent);
 }
 
-/* Subtitle / tagline under the title */
+/* Subtitle */
 .formCard::before {
   content: 'Welcome back';
   display: block;
@@ -149,7 +148,7 @@
   margin-bottom: 0.5rem;
 }
 
-/* ---------- Error Message ---------- */
+/*  Error Message  */
 .errorMessage {
   background-color: var(--error-bg);
   border: 1px solid var(--error-border);
@@ -170,7 +169,7 @@
   80%       { transform: translateX(4px); }
 }
 
-/* ---------- Input Group ---------- */
+/*  Input Group  */
 .inputGroup {
   display: flex;
   flex-direction: column;
@@ -220,7 +219,7 @@
   border-color: var(--text-secondary);
 }
 
-/* ---------- Submit Button ---------- */
+/*  Submit Button  */
 .submitBtn {
   width: 100%;
   padding: 0.875rem;
@@ -257,7 +256,7 @@
   outline-offset: 3px;
 }
 
-/* ---------- Footer / Register Link ---------- */
+/*  Footer / Register Link  */
 .footer {
   margin-top: 1.5rem;
   text-align: center;
@@ -282,7 +281,7 @@
   border-bottom-color: var(--link-color);
 }
 
-/* ---------- Divider (optional utility) ---------- */
+/*  Divider */
 .divider {
   display: flex;
   align-items: center;
@@ -300,7 +299,7 @@
   background-color: var(--border-input);
 }
 
-/* ---------- Reduced Motion ---------- */
+/*  Reduced Motion  */
 @media (prefers-reduced-motion: reduce) {
   .formCard,
   .errorMessage,

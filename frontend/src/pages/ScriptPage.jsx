@@ -4,8 +4,7 @@ import ScriptCard from '../components/ScriptCard';
 
 const ScriptsPage = () => {
   const [scripts, setScripts] = useState([]);
-  const [loading, setLoading] = useState(true);
- 
+  const [loading, setLoading] = useState(true); 
   const currentUserId = 1; 
 
   useEffect(() => {

@@ -1,6 +1,6 @@
- 
+
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lora:ital,wght@0,400;1,400&display=swap');
- 
+
 .card {
   --bg-card:          #faf7f2;
   --bg-poster-from:   #1a1208;
@@ -22,7 +22,7 @@
   --shadow-hover:     0 15px 35px rgba(60,40,10,0.13);
   --overlay-opacity:  0.1;
 }
- 
+
 @media (prefers-color-scheme: dark) {
   .card {
     --bg-card:          #1c1a16;
@@ -46,7 +46,7 @@
     --overlay-opacity:  0.06;
   }
 }
- 
+
 .card {
   font-family: 'Lora', Georgia, serif;
   width: 320px;
@@ -69,7 +69,7 @@
   box-shadow: var(--shadow-hover);
   transform: translateY(-5px);
 }
- 
+
 .poster {
   height: 100px; 
   position: relative;
@@ -79,7 +79,7 @@
   padding: 0 20px;
   transition: background 0.3s ease;
 }
- 
+
 
 .posterTitle {
   font-family: 'Playfair Display', serif;
@@ -92,7 +92,7 @@
   line-height: 1.2;
   transition: color 0.3s ease;
 }
- 
+
 .badgeContainer {
   position: absolute;
   top: 12px;
@@ -139,7 +139,7 @@
 .favButton:hover {
   background: var(--fav-bg-hover);
 }
- 
+
 .body {
   padding: 18px;
   flex: 1;
@@ -177,7 +177,7 @@
   text-overflow: ellipsis;
   transition: color 0.3s ease;
 }
- 
+
 .footer {
   padding: 12px 18px;
   border-top: 1px solid var(--border-footer);
@@ -219,7 +219,7 @@
 .readButton:hover {
   background-color: var(--btn-bg-hover);
 }
- 
+
 @media (prefers-reduced-motion: reduce) {
   .card,
   .readButton,

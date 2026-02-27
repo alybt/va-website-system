@@ -6,11 +6,9 @@ import ScriptsPage from './pages/ScriptPage';
 function App() {
   return (
     <Router>
-      <Routes>
-        {/* This makes the LoginPage show up at http://localhost:5173/ */}
-        <Route path="/" element={<LoginPage />} />
-        
-        {/* This will be your register page once you create it */}
+      <Routes> 
+        <Route path="/" element={<LoginPage />} /> 
+
         <Route path="/register" element={<RegisterPage />} />
 
         <Route path="/scripts" element={<ScriptsPage />} />
