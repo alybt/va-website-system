@@ -11,11 +11,12 @@ CREATE TABLE users (
     user_id INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(100) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL,
+    -- add pfp in the Database
     bio TEXT,
     status ENUM('pending', 'active', 'suspended') DEFAULT 'pending',
     role ENUM('admin', 'user') NOT NULL,
     last_active TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-
+    
     is_deleted BOOLEAN DEFAULT FALSE,
     deleted_at TIMESTAMP NULL
 );
