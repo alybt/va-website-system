@@ -54,3 +54,12 @@
   --accent: #d4af5f;
   --border: #2e2a22;
 }
+
+.app-container {
+  width: 100%;
+  min-height: 100vh;
+  display: block; /* Ensure it's not 'inline' or 'flex' by accident */
+  background-color: var(--bg-app);
+  margin: 0;
+  padding: 0;
+}

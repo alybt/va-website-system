@@ -1,0 +1,51 @@
+.libraryWrapper {
+  width: 100%;
+  box-sizing: border-box;  
+  min-height: 100vh;
+  background-color: var(--bg-app);
+  padding: 4rem 5%; 
+}
+
+.scriptGrid {
+  display: grid; 
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  width: 100%;
+}
+
+.header {
+  margin-bottom: 3rem;
+  border-left: 4px solid var(--accent);
+  padding-left: 1.5rem;
+}
+
+.title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  color: var(--text-main);
+  margin: 0;
+}
+
+.subtitle {
+  font-family: 'Lora', serif;
+  color: var(--text-meta);
+  font-style: italic;
+  margin-top: 0.5rem;
+}
+
+.scriptGrid {
+  display: grid;
+  /* This makes the "Game Library" look: responsive columns */
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2.5rem;
+}
+
+.loader {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg-app);
+  color: var(--text-main);
+}

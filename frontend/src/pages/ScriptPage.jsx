@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import api from '../api/axios';
 import ScriptCard from '../components/ScriptCard';
+import styles from './ScriptPage.module.css'; 
 
 const ScriptsPage = () => {
   const [scripts, setScripts] = useState([]);
@@ -18,16 +19,24 @@ const ScriptsPage = () => {
         setLoading(false);
       }
     };
-
     fetchScripts();
   }, []);
 
-  if (loading) return <div className="p-10 text-center">Loading scripts...</div>;
+  if (loading) return (
+    <div className={styles.loader}>
+      <div className={styles.spinner}></div>
+      <p>Opening the Archives...</p>
+    </div>
+  );
 
   return (
-    <div className="min-h-screen bg-gray-50 p-8">
-      <h1 className="text-3xl font-bold mb-8">Script Library</h1>
-      <div className="flex flex-wrap gap-6">
+    <div className={styles.libraryWrapper}>
+      <header className={styles.header}>
+        <h1 className={styles.title}>Script Library</h1>
+        <p className={styles.subtitle}>Explore curated scripts for your next performance</p>
+      </header>
+
+      <div className={styles.scriptGrid}>
         {scripts.length > 0 ? (
           scripts.map(script => (
             <ScriptCard 
@@ -37,7 +46,9 @@ const ScriptsPage = () => {
             />
           ))
         ) : (
-          <p>No scripts found.</p>
+          <div className={styles.emptyState}>
+            <p>No scripts found in the library.</p>
+          </div>
         )}
       </div>
     </div>

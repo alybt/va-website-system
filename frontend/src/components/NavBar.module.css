@@ -55,3 +55,34 @@
   color: var(--text-main);
   border-radius: 4px;
 }
+.profileArea {
+  position: relative; /* Essential for the dropdown positioning */
+  display: flex;
+  align-items: center;
+}
+
+.dropdown {
+  position: absolute;
+  top: 120%; /* Sits below the PFP */
+  right: 0;
+  background-color: var(--bg-nav);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  min-width: 150px;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 100;
+}
+
+.dropdown a {
+  padding: 10px 15px;
+  font-size: 0.9rem;
+  transition: background 0.2s;
+}
+
+.dropdown a:hover {
+  background-color: var(--border);  
+  opacity: 1;  
+}
