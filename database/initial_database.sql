@@ -34,6 +34,7 @@ CREATE TABLE scripts (
     recommended_music VARCHAR(150),
     author_note TEXT,
     created_by INT,
+    cast_size INT,
 
     is_deleted BOOLEAN DEFAULT FALSE,
     deleted_at TIMESTAMP NULL,

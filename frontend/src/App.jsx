@@ -19,7 +19,7 @@ const NavigationHandler = ({ isAuth, userData }) => {
 
 function App() { 
   const [isAuth, setIsAuth] = useState(false); 
-   
+
   const userData = {
     image: "https://via.placeholder.com/35"
   };
