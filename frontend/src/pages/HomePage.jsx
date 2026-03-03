@@ -1,8 +1,8 @@
 import React from 'react'
-import styles from './HomePage.module.css'
+import styles from './HomePage.module.css';
 import { Link } from 'lucide-react';
 
-const Homepage = () => {
+const HomePage = () => {
     return (
         <div className={styles.container}>
             {/* HERO SECTION */}
@@ -21,6 +21,7 @@ const Homepage = () => {
                 </div>
             </header>
 
+            {/* CONTENT SECTION */}
             <section className= {styles.contentSection}>
                 <div className= {styles.card}>
                     <h2 className= {styles.sectionHeading}> 
@@ -36,6 +37,7 @@ const Homepage = () => {
                 </div>
             </section>
 
+            {/* FEATURE SECTION */}
             <section className={styles.features}>
                 <div className={styles.featureItem}>
                     <h3>Elegant Design</h3>

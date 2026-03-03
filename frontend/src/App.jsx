@@ -4,12 +4,13 @@ import LoginPage from './pages/auth/LoginPage';
 import RegisterPage from './pages/auth/Register';
 import ScriptsPage from './pages/ScriptPage';
 import Navbar from './components/NavBar';
+import HomePage from './pages/HomePage';
 import './assets/global-assets.css';  
 
 
 const NavigationHandler = ({ isAuth, userData }) => {
   const location = useLocation(); 
-  const hideNavbarPaths = ['/login', '/register', '/'];  
+  const hideNavbarPaths = ['/login', '/register'];  
   if (hideNavbarPaths.includes(location.pathname)) {
     return null;
   }
@@ -33,7 +34,7 @@ function App() {
           <Route path="/login" element={<LoginPage setIsAuth={setIsAuth} />} /> 
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/scripts" element={<ScriptsPage />} /> 
-          <Route path="/" element={<LoginPage setIsAuth={setIsAuth} />} />
+          <Route path="/" element={<HomePage/>} />
         </Routes>
       </main>
     </Router>
