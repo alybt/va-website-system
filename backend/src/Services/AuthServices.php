@@ -32,7 +32,7 @@ class AuthService {
         $user = new User();
         $user->username = $data['username'];
         $user->password = password_hash($data['password'], PASSWORD_BCRYPT);
-        $user->role = $data['role'] ?? 'writer';
+        $user->role = $data['role'] ?? 'user';
 
         // 3. Save via Repository
         return $this->userRepository->create($user);
