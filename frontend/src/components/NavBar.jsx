@@ -1,15 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import styles from './navbar.module.css';
+import { useTheme } from '../context/ThemeContext';
 
 const Navbar = ({ isLoggedIn, userPfp }) => {
-  const [theme, setTheme] = useState('light');
-  const [showDropdown, setShowDropdown] = useState(false);
-
-  const toggleTheme = () => {
-    const newTheme = theme === 'light' ? 'dark' : 'light';
-    setTheme(newTheme);
-    document.documentElement.setAttribute('data-theme', newTheme);
-  };
+  const { theme, toggleTheme } = useTheme();
+  const [showDropdown, setShowDropdown] = useState(false)
 
   return (
     <nav className={styles.navbar}>

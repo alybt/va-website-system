@@ -1,12 +1,14 @@
-import React from 'react'
 import styles from './HomePage.module.css';
 import { Link } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
 
-const HomePage = () => {
+const HomePage = () => { 
+    const [loading, setLoading] = useState(true);
+
     return (
         <div className={styles.container}>
             {/* HERO SECTION */}
-            <header className={styles.container}>
+            <header className={styles.hero}>
                 <h1 className={styles.title}> Comic Dubbing And Scripts </h1>
                 <p className={styles.subtitle}>
                     Sanctuary for the writers, and organize the chaos of story telling.
