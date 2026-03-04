@@ -13,7 +13,15 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 $requestUri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 $method = $_SERVER['REQUEST_METHOD'];
+error_log("URI: $requestUri | Method: $method");
 
+if ($requestUri === '/login' && $method === 'POST') {
+    $controller = new \App\Controllers\AuthController();
+    $controller->login();
+} else {
+    http_response_code(404);
+    echo json_encode(['message' => 'Route not found']);
+}
 
 if ($requestUri === '/register' && $method === 'POST') {
     (new \App\Controllers\RegisterController())->register();
@@ -27,3 +35,4 @@ if ($requestUri === '/register' && $method === 'POST') {
         "path" => $requestUri
     ]);
 }
+

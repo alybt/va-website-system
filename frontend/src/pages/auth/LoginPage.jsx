@@ -1,11 +1,14 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import api from '../../api/axios';
 import styles from './LoginPage.module.css'; 
+
+
 
 const LoginPage = () => {
   const [formData, setFormData] = useState({ username: '', password: '' });
   const [error, setError] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -14,7 +17,7 @@ const LoginPage = () => {
     try {
       const response = await api.post('/login', formData);
       console.log('Login Success:', response.data);
-      alert('Logged in successfully!');
+      navigate('/');
     } catch (err) {
       setError(err.response?.data?.message || 'Login failed');
     }
