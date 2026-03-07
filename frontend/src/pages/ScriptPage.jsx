@@ -12,7 +12,7 @@ const ScriptsPage = () => {
     const fetchScripts = async () => {
       try {
         const response = await api.get(`/scripts?user_id=${currentUserId}`);
-        setScripts(response.data);
+        setScripts(response.data ?? []);
       } catch (err) {
         console.error("Failed to fetch scripts:", err);
       } finally {
@@ -28,6 +28,18 @@ const ScriptsPage = () => {
       <p>Opening the Archives...</p>
     </div>
   );
+
+  {Array.isArray(scripts) && scripts.length > 0 ? (
+    scripts.map(script => (
+            <ScriptCard 
+              key={script.script_id} 
+              script={script} 
+              userId={currentUserId} 
+            />
+          ))
+  ) : (
+    <div>No scripts found</div>
+  )}
 
   return (
     <div className={styles.libraryWrapper}>

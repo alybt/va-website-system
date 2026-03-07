@@ -4,12 +4,11 @@ import api from '../../api/axios';
 import styles from './LoginPage.module.css'; 
 import { useAuth } from '../../context/AuthContext';
 
-
 const LoginPage = () => {
   const [formData, setFormData] = useState({ username: '', password: '' });
   const [error, setError] = useState('');
   const navigate = useNavigate();
-  const { login } = useAuth()
+  const { login } = useAuth();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -17,9 +16,8 @@ const LoginPage = () => {
 
     try {
       const response = await api.post('/login', formData);
-      login(response.data.user);
-      console.log('Login Success:', response.data);
-      localStorage.setItem('token', response.data.token);
+      login(response.data.user, response.data.token);
+      console.log('Login Success:', response.data); 
       navigate('/');
     } catch (err) {
       setError(err.response?.data?.message || 'Login failed');

@@ -9,8 +9,7 @@
         exit;
     }
 
-    require_once __DIR__ . '/../vendor/autoload.php';
-    require_once __DIR__ . '/../src/Routes/routes.php';
+    require_once __DIR__ . '/../vendor/autoload.php'; 
 
     $requestUri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
     $method = $_SERVER['REQUEST_METHOD'];
@@ -19,12 +18,7 @@
     if ($requestUri === '/login' && $method === 'POST') {
         $controller = new \App\Controllers\AuthController();
         $controller->login();
-    } else {
-        http_response_code(404);
-        echo json_encode(['message' => 'Route not found']);
-    }
-
-    if ($requestUri === '/register' && $method === 'POST') {
+    } else if ($requestUri === '/register' && $method === 'POST') {
         (new \App\Controllers\RegisterController())->register();
     } else if ($requestUri === '/scripts' && $method === 'GET') {
         (new \App\Controllers\ScriptController())->index();

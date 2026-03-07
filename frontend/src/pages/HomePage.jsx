@@ -1,10 +1,13 @@
-import styles from './HomePage.module.css';
 import { Link } from 'lucide-react';
 import React, { useState, useEffect } from 'react';
 
+import styles from './HomePage.module.css';
+
+import { useAuth } from '../context/AuthContext';
+
 const HomePage = () => { 
     const [loading, setLoading] = useState(true);
-
+    const { user, isAuth } = useAuth();
     return (
         <div className={styles.container}>
             {/* HERO SECTION */}
