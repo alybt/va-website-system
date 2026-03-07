@@ -1,7 +1,7 @@
 project/
 ├── backend/
 │ ├── public/
-│ │ └── index.html
+│ │ └── index.php
 | ├── src/
 | | ├── Config/
 | | ├── Controllers/

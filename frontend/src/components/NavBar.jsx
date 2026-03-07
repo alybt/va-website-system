@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import styles from './navbar.module.css';
 import { useTheme } from '../context/ThemeContext';
+import { useAuth } from '../context/AuthContext';  
 
-const Navbar = ({ isLoggedIn, userPfp }) => {
+const Navbar = () => {  
   const { theme, toggleTheme } = useTheme();
-  const [showDropdown, setShowDropdown] = useState(false)
+  const { user, logout } = useAuth();  
+  const [showDropdown, setShowDropdown] = useState(false);
 
   return (
     <nav className={styles.navbar}>
@@ -20,18 +22,18 @@ const Navbar = ({ isLoggedIn, userPfp }) => {
             {theme === 'light' ? '🌙 Dark' : '☀️ Light'}
           </button>
 
-          {isLoggedIn ? (
+          {user ? (
             <div className={styles.profileArea}>
-              <img 
-                src={userPfp} 
-                className={styles.pfp} 
-                onClick={() => setShowDropdown(!showDropdown)} 
+              <img
+                src={user.pfp}
+                className={styles.pfp}
+                onClick={() => setShowDropdown(!showDropdown)}
                 alt="Profile"
               />
               {showDropdown && (
                 <div className={styles.dropdown}>
                   <a href="/settings">My Settings</a>
-                  <a href="/logout">Logout</a>
+                  <button onClick={logout}>Logout</button>  
                 </div>
               )}
             </div>

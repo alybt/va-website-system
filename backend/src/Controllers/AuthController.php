@@ -10,23 +10,22 @@ class AuthController {
         $this->authService = $authService;
     }
 
-    public function login() {
-        // Get JSON body from React
+    public function login() { 
         $data = json_decode(file_get_contents("php://input"), true);
-        $email = $data['email'] ?? '';
+        $username = $data['username'] ?? '';
         $password = $data['password'] ?? '';
 
-        $user = $this->authService->authenticate($email, $password);
+        $user = $this->authService->authenticate($username, $password);
 
         if ($user) {
             echo json_encode([
                 "status" => "success",
                 "user" => $user,
-                "token" => "dummy-jwt-token" // You'll generate a real JWT later
+                "token" => "dummy-jwt-token"  
             ]);
         } else {
             http_response_code(401);
-            echo json_encode(["message" => "Invalid email or password"]);
+            echo json_encode(["message" => "Invalid username or password"]);
         }
     }
     
