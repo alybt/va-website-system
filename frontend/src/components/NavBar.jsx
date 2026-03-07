@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom'; 
+
 import styles from './navbar.module.css';
+
 import { useTheme } from '../context/ThemeContext';
 import { useAuth } from '../context/AuthContext';  
 
@@ -13,9 +16,9 @@ const Navbar = () => {
       <div className={styles.logo}>LOGO</div>
 
       <div className={styles.navLinks}>
-        <a href="/">Home</a>
-        <a href="/scripts">Scripts</a>
-        <a href="/dubbing">Dubbing</a>
+        <Link to="/">Home</Link>
+        <Link to="/scripts">Scripts</Link>
+        <Link to="/login">Login</Link>
 
         <div className={styles.userSection}>
           <button onClick={toggleTheme} className={styles.themeToggle}>
@@ -25,7 +28,7 @@ const Navbar = () => {
           {user ? (
             <div className={styles.profileArea}>
               <img
-                src={user.pfp}
+                src={user?.pfp || 'https://via.placeholder.com/35'}
                 className={styles.pfp}
                 onClick={() => setShowDropdown(!showDropdown)}
                 alt="Profile"
