@@ -11,9 +11,9 @@ class UserRepository {
         $this->db = $db;
     }
 
-    public function findByEmail($email) {
-        $stmt = $this->db->prepare("SELECT * FROM users WHERE email = :email");
-        $stmt->execute(['email' => $email]);
+    public function findByusername($username) {
+        $stmt = $this->db->prepare("SELECT * FROM users WHERE username = :username");
+        $stmt->execute(['username' => $username]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 

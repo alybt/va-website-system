@@ -10,8 +10,8 @@ class AuthService {
         $this->userRepository = $userRepository;
     }
 
-    public function authenticate($email, $password) {
-        $user = $this->userRepository->findByEmail($email);
+    public function authenticate($username, $password) {
+        $user = $this->userRepository->findByUsername($username);
 
         if ($user && password_verify($password, $user['password'])) {
             // Remove password before sending user data back
