@@ -163,10 +163,8 @@ export default function ScriptFilter({ onResults, onLoading, userId = 0 }) {
                 {isOpen ? '✕ Close' : '⚙ Filters'}{hasFilters ? ' ·' : ''}
             </button>
 
-            {/* Desktop: sticky sidebar */}
             <aside className={styles.sidebar}>{panel}</aside>
 
-            {/* Mobile: fullscreen drawer */}
             {isOpen && <div className={styles.drawer}>{panel}</div>}
         </>
     );

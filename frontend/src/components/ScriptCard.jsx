@@ -11,20 +11,20 @@ const GENRE_PALETTES = {
 };
 
 const ScriptCard = ({ script = {}, userId }) => {
-  const genre = script.genre || "Drama";
+  const genre  = script.genre || "Drama";
   const gStyle = GENRE_PALETTES[genre] || GENRE_PALETTES.Default;
 
   return (
-    <div className={styles.card}> 
-    
+    <div className={styles.card}>
+
       <div className={styles.poster}>
         <div className={styles.paperOverlay} />
         <ScrollText size={60} color="rgba(212,175,95,0.2)" style={{ position: "absolute" }} />
         <h3 className={styles.posterTitle}>{script.title}</h3>
 
         <div className={styles.badgeContainer}>
-          <span 
-            className={styles.genreBadge} 
+          <span
+            className={styles.genreBadge}
             style={{ backgroundColor: gStyle.bg, color: gStyle.text }}
           >
             <div className={styles.genreDot} style={{ backgroundColor: gStyle.dot }} />
@@ -33,43 +33,52 @@ const ScriptCard = ({ script = {}, userId }) => {
         </div>
 
         <div className={styles.favButton}>
-          <FavoriteButton 
-            scriptId={script.script_id} 
-            userId={userId} 
-            initialIsFavorited={script.is_user_favorite} 
+          <FavoriteButton
+            scriptId={script.script_id}
+            userId={userId}
+            initialIsFavorited={script.is_user_favorite}
           />
         </div>
-      </div> 
+      </div>
 
       <div className={styles.body}>
         <div className={styles.metaRow}>
-          <span className="flex items-center gap-1"><Clock size={13} /> {script.runtime_minutes}m</span>
-          
+          <span className="flex items-center gap-1">
+            <Clock size={13} /> {script.runtime_minutes ? `${script.runtime_minutes}m` : '—'}
+          </span>
+
           <span className={styles.divider}>|</span>
-          <span className="flex items-center gap-1"><Music size={13} /> {script.recommended_music || "No Music"}</span>
-          
+          <span className="flex items-center gap-1">
+            <Music size={13} /> {script.recommended_music || "No Music"}
+          </span>
+
           <span className={styles.divider}>|</span>
-          <span className="flex items-center gap-1">Created by:  {script.created_by}</span>
+          {/* author_name comes from the JOIN on users.username */}
+          <span className="flex items-center gap-1">
+            By: {script.author_name || '—'}
+          </span>
         </div>
 
         <p className={styles.authorNote}>
           "{script.author_note || "No author notes available for this piece."}"
         </p>
-      </div> 
+      </div>
 
       <div className={styles.footer}>
         <div className={styles.castInfo}>
           <User size={12} />
-          <span>Cast: 1 Person</span>
+          {/* cast_size from DB instead of hardcoded */}
+          <span>Cast: {script.cast_size ?? '—'} {script.cast_size === 1 ? 'Person' : 'People'}</span>
         </div>
 
-        <button 
+        <button
           className={styles.readButton}
           onClick={() => window.location.href = `/scripts/${script.script_id}`}
         >
           READ SCRIPT <Eye size={14} />
         </button>
       </div>
+
     </div>
   );
 };

@@ -1,17 +1,21 @@
 <?php
+
 namespace App\Repositories;
 
 use PDO;
 
 class ScriptRepository {
-    private $db;
+    private PDO $db;
 
-    public function __construct(PDO $db) {
+    public function __construct(PDO $db)
+    {
         $this->db = $db;
     }
 
-    public function getAllScripts(int $userId = 0, array $filters = []): array {
-        $conditions = ['s.is_deleted = 0'];
+    public function getAllScripts(int $userId = 0, array $filters = []): array
+    {
+        
+        $conditions = ['(s.is_deleted IS NULL OR s.is_deleted = 0)'];
         $params     = [];
 
         if ($userId > 0) {
@@ -34,12 +38,12 @@ class ScriptRepository {
             $params[':created_by'] = (int) $filters['created_by'];
         }
 
-        if (isset($filters['max_runtime']) && $filters['max_runtime'] !== '') {
+        if (!empty($filters['max_runtime'])) {
             $conditions[] = 's.runtime_minutes <= :max_runtime';
             $params[':max_runtime'] = (int) $filters['max_runtime'];
         }
 
-        if (isset($filters['max_cast']) && $filters['max_cast'] !== '') {
+        if (!empty($filters['max_cast'])) {
             $conditions[] = 's.cast_size <= :max_cast';
             $params[':max_cast'] = (int) $filters['max_cast'];
         }
@@ -56,11 +60,11 @@ class ScriptRepository {
                 s.author_note,
                 s.cast_size,
                 s.created_by,
-                u.username  AS author_name
+                u.username AS author_name
             FROM scripts s
             LEFT JOIN users u
                 ON u.user_id = s.created_by
-                AND u.is_deleted = 0
+                AND (u.is_deleted IS NULL OR u.is_deleted = 0)
             WHERE {$where}
             ORDER BY s.title ASC
         ";
@@ -71,11 +75,12 @@ class ScriptRepository {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function getGenres(): array {
+    public function getGenres(): array
+    {
         $stmt = $this->db->query("
             SELECT DISTINCT genre
             FROM scripts
-            WHERE is_deleted = 0
+            WHERE (is_deleted IS NULL OR is_deleted = 0)
                 AND genre IS NOT NULL
                 AND genre != ''
             ORDER BY genre ASC
@@ -83,17 +88,17 @@ class ScriptRepository {
         return $stmt->fetchAll(PDO::FETCH_COLUMN);
     }
 
-    public function getAuthors(): array {
+    public function getAuthors(): array
+    {
         $stmt = $this->db->query("
             SELECT DISTINCT u.user_id, u.username
             FROM scripts s
             JOIN users u
                 ON u.user_id = s.created_by
-                AND u.is_deleted = 0
-            WHERE s.is_deleted = 0
+                AND (u.is_deleted IS NULL OR u.is_deleted = 0)
+            WHERE (s.is_deleted IS NULL OR s.is_deleted = 0)
             ORDER BY u.username ASC
         ");
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
-
 }

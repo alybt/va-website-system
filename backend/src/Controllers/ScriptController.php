@@ -5,8 +5,7 @@ use App\Repositories\ScriptRepository;
 use App\Config\Database;
 
 class ScriptController {
-    public function index(): void
-    {
+    public function index(): void {
         $db   = (new Database())->getConnection();
         $repo = new ScriptRepository($db);
 
@@ -46,8 +45,7 @@ class ScriptController {
         ]);
     }
 
-    public function meta(): void
-    {
+    public function meta(): void {
         $db   = (new Database())->getConnection();
         $repo = new ScriptRepository($db);
 
