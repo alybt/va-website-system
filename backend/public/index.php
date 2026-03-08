@@ -31,8 +31,10 @@
     } else if ($requestUri === '/scripts' && $method === 'GET') {
         (new \App\Controllers\ScriptController())->index();
 
+    } else if ($requestUri === '/scripts/meta' && $method === 'GET') {
+        (new \App\Controllers\ScriptController())->meta();
+
     } else {
         http_response_code(404);
         echo json_encode(["status" => "error", "message" => "Route not found"]);
     }
-
