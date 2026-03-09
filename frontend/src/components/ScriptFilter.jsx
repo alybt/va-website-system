@@ -55,8 +55,7 @@ export default function ScriptFilter({ onResults, onLoading, userId = 0 }) {
     useEffect(() => {
         onLoading(true);
 
-        const params = new URLSearchParams();
-        if (userId)            params.set('user_id',     userId);
+        const params = new URLSearchParams(); 
         if (debouncedQ)        params.set('search',      debouncedQ);
         if (genre)             params.set('genre',       genre);
         if (authorId)          params.set('created_by',  authorId);
@@ -101,13 +100,11 @@ export default function ScriptFilter({ onResults, onLoading, userId = 0 }) {
             <RangeSlider min={30} max={180} value={maxRuntime} onChange={setMaxRuntime} format={v => `${v} min`} />
         </div>
 
-        {/* Cast Size */}
         <div className={styles.section}>
             <label className={styles.sectionLabel}>Max Cast Size</label>
             <RangeSlider min={1} max={50} value={maxCast} onChange={setMaxCast} format={v => `${v} roles`} />
         </div>
 
-        {/* Genre */}
         {genres.length > 0 && (
             <div className={styles.section}>
                 <label className={styles.sectionLabel}>Genre</label>
@@ -123,7 +120,6 @@ export default function ScriptFilter({ onResults, onLoading, userId = 0 }) {
             </div>
         )}
 
-        {/* Author — uses username from users table */}
         {authors.length > 0 && (
             <div className={styles.section}>
                 <label className={styles.sectionLabel}>Author</label>
@@ -141,8 +137,7 @@ export default function ScriptFilter({ onResults, onLoading, userId = 0 }) {
                             checked={authorId === a.user_id}
                             onChange={() => setAuthorId(prev => prev === a.user_id ? null : a.user_id)}
                             className={styles.hiddenInput}
-                        />
-                        {/* a.username comes from the DB — matches users.username column */}
+                        /> 
                         <span className={`${styles.checkLabel} ${authorId === a.user_id ? styles.checkLabelActive : ''}`}>
                             {a.username}
                         </span>

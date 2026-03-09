@@ -52,8 +52,7 @@ const ScriptCard = ({ script = {}, userId }) => {
             <Music size={13} /> {script.recommended_music || "No Music"}
           </span>
 
-          <span className={styles.divider}>|</span>
-          {/* author_name comes from the JOIN on users.username */}
+          <span className={styles.divider}>|</span> 
           <span className="flex items-center gap-1">
             By: {script.author_name || '—'}
           </span>
@@ -66,8 +65,7 @@ const ScriptCard = ({ script = {}, userId }) => {
 
       <div className={styles.footer}>
         <div className={styles.castInfo}>
-          <User size={12} />
-          {/* cast_size from DB instead of hardcoded */}
+          <User size={12} /> 
           <span>Cast: {script.cast_size ?? '—'} {script.cast_size === 1 ? 'Person' : 'People'}</span>
         </div>
 

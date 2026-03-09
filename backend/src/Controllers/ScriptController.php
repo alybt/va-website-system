@@ -7,12 +7,7 @@ use App\Config\Database;
 class ScriptController {
     public function index(): void {
         $db   = (new Database())->getConnection();
-        $repo = new ScriptRepository($db);
-
-        // ── legacy param (kept for backward-compat) ────────────────
-        $userId = (int) ($_GET['user_id'] ?? 0);
-
-        // ── filter params from query string ────────────────────────
+        $repo = new ScriptRepository($db); 
         $filters = [];
 
         if (isset($_GET['search']) && $_GET['search'] !== '') {
@@ -27,15 +22,15 @@ class ScriptController {
             $filters['created_by'] = (int) $_GET['created_by'];
         }
 
-        if (isset($_GET['max_runtime']) && $_GET['max_runtime'] !== '') {
-            $filters['max_runtime'] = (int) $_GET['max_runtime'];
+        if (isset($_GET['runtime_minutes']) && $_GET['runtime_minutes'] !== '') {
+            $filters['runtime_minutes'] = (int) $_GET['runtime_minutes'];
         }
 
-        if (isset($_GET['max_cast']) && $_GET['max_cast'] !== '') {
-            $filters['max_cast'] = (int) $_GET['max_cast'];
+        if (isset($_GET['cast_size']) && $_GET['cast_size'] !== '') {
+            $filters['cast_size'] = (int) $_GET['cast_size'];
         }
 
-        $scripts = $repo->getAllScripts($userId, $filters);
+        $scripts = $repo->getAllScripts( $filters);
 
         header('Content-Type: application/json');
         echo json_encode([
