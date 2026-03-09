@@ -97,12 +97,12 @@ export default function ScriptFilter({ onResults, onLoading, userId = 0 }) {
 
         <div className={styles.section}>
             <label className={styles.sectionLabel}>Max Runtime</label>
-            <RangeSlider min={30} max={180} value={maxRuntime} onChange={setMaxRuntime} format={v => `${v} min`} />
+            <RangeSlider min={1} max={180} value={maxRuntime} onChange={setMaxRuntime} format={v => `${v} min`} />
         </div>
 
         <div className={styles.section}>
             <label className={styles.sectionLabel}>Max Cast Size</label>
-            <RangeSlider min={1} max={50} value={maxCast} onChange={setMaxCast} format={v => `${v} roles`} />
+            <RangeSlider min={1} max={50} value={maxCast} onChange={setMaxCast} format={v => `${v} person`} />
         </div>
 
         {genres.length > 0 && (

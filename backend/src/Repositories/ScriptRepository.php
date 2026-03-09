@@ -23,22 +23,22 @@ class ScriptRepository {
 
         if (!empty($filters['genre'])) {
             $conditions[] = 's.genre = :genre';
-            $params['genre'] = $filters['genre'];
+            $params[':genre'] = $filters['genre'];
         }
 
         if (!empty($filters['created_by'])) {
             $conditions[] = 's.created_by = :created_by';
-            $params['created_by'] = (int) $filters['created_by'];
+            $params[':created_by'] = (int) $filters['created_by'];
         }
 
-        if (!empty($filters['runtime_minutes'])) {
-            $conditions[] = 's.runtime_minutes = :runtime_minutes';
-            $params['runtime_minutes'] = (int) $filters['runtime_minutes'];
+        if (!empty($filters['max_runtime'])) {
+            $conditions[] = 's.runtime_minutes <= :max_runtime';
+            $params[':max_runtime'] = (int) $filters['max_runtime'];
         }
 
-        if (!empty($filters['cast_size'])) {
-            $conditions[] = 's.cast_size = :cast_size';
-            $params['cast_size'] = (int) $filters['cast_size'];
+        if (!empty($filters['max_cast'])) {
+            $conditions[] = 's.cast_size <= :max_cast';
+            $params[':max_cast'] = (int) $filters['max_cast'];
         }
 
         $where = implode(' AND ', $conditions);

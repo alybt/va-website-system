@@ -22,12 +22,12 @@ class ScriptController {
             $filters['created_by'] = (int) $_GET['created_by'];
         }
 
-        if (isset($_GET['runtime_minutes']) && $_GET['runtime_minutes'] !== '') {
-            $filters['runtime_minutes'] = (int) $_GET['runtime_minutes'];
+        if (isset($_GET['max_runtime']) && $_GET['max_runtime'] !== '') {
+            $filters['max_runtime'] = (int) $_GET['max_runtime'];
         }
 
-        if (isset($_GET['cast_size']) && $_GET['cast_size'] !== '') {
-            $filters['cast_size'] = (int) $_GET['cast_size'];
+        if (isset($_GET['max_cast']) && $_GET['max_cast'] !== '') {
+            $filters['max_cast'] = (int) $_GET['max_cast'];
         }
 
         $scripts = $repo->getAllScripts( $filters);
