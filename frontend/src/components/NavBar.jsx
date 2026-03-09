@@ -18,7 +18,7 @@ const Navbar = () => {
       <div className={styles.navLinks}>
         <Link to="/">Home</Link>
         <Link to="/scripts">Scripts</Link>
-        <Link to="/login">Login</Link>
+        <Link to="/dubbing">Dubbing</Link>
 
         <div className={styles.userSection}>
           <button onClick={toggleTheme} className={styles.themeToggle}>
