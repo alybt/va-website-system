@@ -25,8 +25,7 @@ const HomePage = () => {
                     </Link>                    
                 </div>
             </header>
-
-            {/* CONTENT SECTION */}
+ 
             <section className= {styles.contentSection}>
                 <div className= {styles.card}>
                     <h2 className= {styles.sectionHeading}> 

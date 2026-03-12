@@ -7,6 +7,7 @@ import LoginPage from './pages/auth/LoginPage';
 import RegisterPage from './pages/auth/Register';
 import ScriptsPage from './pages/ScriptPage';
 import HomePage from './pages/HomePage';
+import DubbingPage from './pages/DubbingPage';
 
 import { AuthProvider, useAuth } from './context/AuthContext';
 import { ThemeProvider } from './context/ThemeContext';
@@ -34,6 +35,7 @@ function App() {
               <Route path="/login" element={<LoginPage />} /> 
               <Route path="/register" element={<RegisterPage />} />
               <Route path="/scripts" element={<ScriptsPage />} /> 
+              <Route path="/dubbing" element={<DubbingPage />} /> 
               <Route path="/" element={<HomePage />} />
             </Routes>
           </main>
