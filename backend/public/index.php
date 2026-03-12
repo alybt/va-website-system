@@ -34,6 +34,16 @@
     } else if ($requestUri === '/scripts/meta' && $method === 'GET') {
         (new \App\Controllers\ScriptController())->meta();
 
+    } else if ($segments[0] === 'actors') {
+        $controller = new ActorController(new ActorRepository($db));
+        $controller->handle($method, $segments, $body ?? null);
+        exit;
+
+    } else if ($segments[0] === 'characters') {
+        $controller = new CharacterController(new CharacterRepository($db));
+        $controller->handle($method, $segments, $body ?? null);
+        exit;
+
     } else {
         http_response_code(404);
         echo json_encode(["status" => "error", "message" => "Route not found"]);
