@@ -1,0 +1,403 @@
+s.page {
+    padding: 36px 32px;
+    min-height: 100vh;
+}
+
+.pageHeader {
+    margin-bottom: 28px;
+}
+
+.pageTitle {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text-body);
+    line-height: 1.2;
+    margin: 0 0 4px;
+}
+
+.pageSubtitle {
+    font-family: 'Lora', serif;
+    font-size: 13px;
+    color: var(--text-meta);
+    letter-spacing: 0.01em;
+    margin: 0;
+}
+
+.artTabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+}
+
+.artTab {
+    font-family: 'Lora', serif;
+    font-size: 13px;
+    font-weight: 400;
+    padding: 8px 18px;
+    border-radius: 20px;
+    border: 1px solid var(--border-card);
+    background: var(--bg-card);
+    color: var(--text-meta);
+    cursor: pointer;
+    transition: all 0.18s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.artTab:hover {
+    border-color: var(--accent);
+    color: var(--text-body);
+}
+
+.artTabActive {
+    font-weight: 700;
+    border: 1.5px solid var(--accent);
+    background: var(--btn-bg);
+    color: var(--btn-text);
+}
+
+.artTypeBadge {
+    font-size: 10px;
+    font-weight: 700;
+    padding: 1px 6px;
+    border-radius: 10px;
+    letter-spacing: 0.04em;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    align-items: start;
+}
+
+.leftCol,
+.rightCol {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.panel {
+    background: var(--bg-card);
+    border: 1px solid var(--border-card);
+    border-radius: 14px;
+    padding: 18px;
+    box-shadow: var(--shadow-card);
+}
+
+.panelHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 14px;
+}
+
+.panelTitle {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text-body);
+}
+
+.clearBtn {
+    font-family: 'Lora', serif;
+    font-size: 11px;
+    color: #c47a7a;
+    background: none;
+    border: 1px solid rgba(196, 122, 122, 0.3);
+    border-radius: 6px;
+    padding: 3px 10px;
+    cursor: pointer;
+    letter-spacing: 0.03em;
+    transition: border-color 0.18s, background 0.18s;
+}
+
+.clearBtn:hover {
+    background: rgba(196, 122, 122, 0.08);
+    border-color: #c47a7a;
+}
+
+.artCard {
+    background: var(--bg-card);
+    border: 1px solid var(--border-card);
+    border-radius: 14px;
+    padding: 20px 22px;
+    box-shadow: var(--shadow-card);
+}
+
+.artCardHeader {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.artTitle {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-body);
+    margin-bottom: 4px;
+}
+
+.artGenre {
+    font-family: 'Lora', serif;
+    font-size: 12.5px;
+    color: var(--text-meta);
+    font-style: italic;
+}
+
+.artTypePill {
+    font-family: 'Lora', serif;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 20px;
+    letter-spacing: 0.05em;
+    flex-shrink: 0;
+}
+
+.progressWrap {
+    margin-top: 14px;
+}
+
+.progressMeta {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 6px;
+    font-family: 'Lora', serif;
+    font-size: 11px;
+    color: var(--text-meta);
+    letter-spacing: 0.04em;
+}
+
+.progressCount {
+    color: var(--text-body);
+    font-weight: 600;
+}
+
+.progressTrack {
+    height: 5px;
+    border-radius: 3px;
+    background: var(--border-card);
+    overflow: hidden;
+}
+
+.progressFill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--btn-bg), var(--accent));
+    border-radius: 3px;
+    transition: width 0.4s ease;
+}
+
+.characterRow {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 14px;
+    border-radius: 10px;
+    border: 1px solid var(--border-card);
+    background: var(--bg-card);
+    transition: border 0.18s, background 0.18s;
+    margin-bottom: 8px;
+}
+
+.characterRowOver {
+    border: 1.5px dashed var(--accent);
+    background: rgba(212, 175, 95, 0.06);
+}
+
+.characterInfo {
+    flex: 1;
+    min-width: 0;
+}
+
+.characterNameRow {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 3px;
+}
+
+.characterName {
+    font-family: 'Playfair Display', serif;
+    font-size: 13.5px;
+    font-weight: 700;
+    color: var(--text-body);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.characterGender {
+    color: var(--text-meta);
+    flex-shrink: 0;
+}
+
+.roleBadge {
+    display: inline-block;
+    border-radius: 20px;
+    padding: 1px 8px;
+    font-size: 10.5px;
+    font-family: 'Lora', serif;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+}
+
+.assignSlot {
+    flex-shrink: 0;
+    min-width: 140px;
+}
+
+.assignedBox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--bg-footer);
+    border: 1px solid var(--border-footer);
+    border-radius: 8px;
+    padding: 5px 10px;
+}
+
+.assignedName {
+    font-family: 'Lora', serif;
+    font-size: 12px;
+    color: var(--text-body);
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.unassignBtn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-meta);
+    padding: 0;
+    line-height: 1;
+    font-size: 14px;
+    flex-shrink: 0;
+    transition: color 0.15s;
+}
+
+.unassignBtn:hover {
+    color: #c47a7a;
+}
+
+.dropZone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    border: 1.5px dashed var(--border-card);
+    border-radius: 8px;
+    padding: 6px 12px;
+    color: var(--text-meta);
+    font-family: 'Lora', serif;
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    opacity: 0.6;
+    transition: opacity 0.18s;
+}
+
+.dropZoneOver {
+    opacity: 1;
+}
+
+.draggable {
+    position: relative;
+    cursor: grab;
+    transition: opacity 0.18s;
+}
+
+.dragging {
+    opacity: 0.45;
+}
+
+.dimmed {
+    opacity: 0.55;    
+}
+
+.assignedBadge {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: rgba(90, 170, 136, 0.2);
+    border: 1px solid rgba(90, 170, 136, 0.5);
+    color: #5aaa88;
+    border-radius: 20px;
+    padding: 1px 8px;
+    font-size: 9.5px;
+    font-family: 'Lora', serif;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    z-index: 2;
+}
+
+.searchWrap {
+    position: relative;
+    margin-bottom: 16px;
+}
+
+.searchIcon {
+    position: absolute;
+    left: 11px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-meta);
+    pointer-events: none;
+}
+
+.searchInput {
+    width: 100%;
+    box-sizing: border-box;
+    background: var(--bg-footer);
+    border: 1px solid var(--border-card);
+    border-radius: 8px;
+    padding: 8px 12px 8px 30px;
+    font-family: 'Lora', serif;
+    font-size: 13px;
+    color: var(--text-body);
+    outline: none;
+    transition: border-color 0.18s;
+}
+
+.searchInput:focus {
+    border-color: var(--accent);
+}
+
+.dragHint {
+    font-family: 'Lora', serif;
+    font-size: 11px;
+    color: var(--text-meta);
+    margin: 0 0 14px;
+    font-style: italic;
+    letter-spacing: 0.02em;
+}
+
+
+.actorGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 14px;
+}
+
+.stateMsg {
+    font-family: 'Lora', serif;
+    font-size: 13px;
+    color: var(--text-meta);
+    font-style: italic;
+    margin: 8px 0;
+}
+
+.noResults {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 32px 0;
+}

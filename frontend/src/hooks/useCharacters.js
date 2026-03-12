@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
-import { charactersApi } from '../api/characters';
+import { charactersApi } from '../api/characters.js';
 
 export function useCharacters(mode = 'all', sourceId = null) {
     const [characters, setCharacters] = useState([]);

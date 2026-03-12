@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
-import { actorsApi } from '../api/actors';
+import { actorsApi } from '../api/actors.js';
 
 export function useActors() {
     const [actors, setActors]   = useState([]);
