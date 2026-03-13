@@ -11,6 +11,7 @@ CREATE TABLE `actors` (
     `name` varchar(100) NOT NULL,
     `gender` enum('Male','Female','Other') DEFAULT NULL,
     `category` enum('Main Cast','Extra','Minor Role','Kid') DEFAULT NULL,
+    `participation_status` ENUM('available', 'participating', 'extra') DEFAULT 'available',
     `is_deleted` tinyint(1) DEFAULT 0,
     `deleted_at` timestamp NULL DEFAULT NULL,
     PRIMARY KEY (`actor_id`),

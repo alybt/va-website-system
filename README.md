@@ -1,7 +1,9 @@
 project/
 ├── backend/
 │ ├── public/
-│ │ └── index.php
+| | ├── .htaccess
+| | ├── index.php
+│ │ └── robot.txt
 | ├── src/
 | | ├── Config/
 | | ├── Controllers/
