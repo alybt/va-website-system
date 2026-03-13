@@ -1,0 +1,138 @@
+.panel {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: 14px;
+  padding: 18px;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.title {
+  font-family: 'Playfair Display', serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-body);
+  margin: 0;
+}
+
+.count {
+  font-family: 'Lora', serif;
+  font-size: 11px;
+  color: var(--text-meta);
+  background: var(--bg-footer);
+  border: 1px solid var(--border-footer);
+  border-radius: 20px;
+  padding: 2px 9px;
+  letter-spacing: 0.03em;
+}
+
+.searchWrap {
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 11px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-meta);
+  pointer-events: none;
+}
+
+.searchInput {
+  width: 100%;
+  box-sizing: border-box;
+  background: var(--bg-footer);
+  border: 1px solid var(--border-card);
+  border-radius: 8px;
+  padding: 8px 12px 8px 30px;
+  font-family: 'Lora', serif;
+  font-size: 13px;
+  color: var(--text-body);
+  outline: none;
+  transition: border-color 0.18s;
+}
+
+.searchInput:focus {
+  border-color: var(--accent);
+}
+
+.hint {
+  font-family: 'Lora', serif;
+  font-size: 11px;
+  color: var(--text-meta);
+  font-style: italic;
+  letter-spacing: 0.02em;
+  margin: 0 0 14px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+}
+
+.draggable {
+  position: relative;
+  cursor: grab;
+  transition: opacity 0.18s, transform 0.18s;
+}
+
+.draggable:active {
+  cursor: grabbing;
+}
+
+.dragging {
+  opacity: 0.4;
+  transform: scale(0.97);
+}
+
+.participating {
+  opacity: 0.6;
+}
+
+.participatingBadge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: rgba(90, 170, 136, 0.18);
+  border: 1px solid rgba(90, 170, 136, 0.5);
+  color: #5aaa88;
+  border-radius: 20px;
+  padding: 1px 8px;
+  font-size: 9.5px;
+  font-family: 'Lora', serif;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.stateMsg {
+  font-family: 'Lora', serif;
+  font-size: 13px;
+  color: var(--text-meta);
+  font-style: italic;
+  margin: 8px 0;
+}
+
+.errorMsg {
+  color: #c47a7a;
+}
+
+.empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 24px 0;
+}

@@ -14,6 +14,8 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 use App\Controllers\ActorController;
 use App\Controllers\CharacterController;
+use App\Controllers\SequentialArtController;
+use App\Repositories\SequentialArtRepository;
 use App\Repositories\ActorRepository;
 use App\Repositories\CharacterRepository;
 
@@ -44,6 +46,10 @@ if ($requestUri === '/login' && $method === 'POST') {
 } elseif ($segments[0] === 'actors') {
     $controller = new ActorController(new ActorRepository($db));
     $controller->handle($method, $segments, $body);
+
+} elseif ($segments[0] === 'sequential-art') {
+    $controller = new SequentialArtController(new SequentialArtRepository($db));
+    $controller->handle($method, $segments);
 
 } elseif ($segments[0] === 'characters') {
     $controller = new CharacterController(new CharacterRepository($db));

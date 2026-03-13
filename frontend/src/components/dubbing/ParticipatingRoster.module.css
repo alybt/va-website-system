@@ -1,0 +1,136 @@
+.panel {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: 14px;
+  padding: 18px;
+  box-shadow: var(--shadow-card);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.title {
+  font-family: 'Playfair Display', serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-body);
+  margin: 0;
+}
+
+.count {
+  font-family: 'Lora', serif;
+  font-size: 11px;
+  color: #5aaa88;
+  background: rgba(90, 170, 136, 0.1);
+  border: 1px solid rgba(90, 170, 136, 0.35);
+  border-radius: 20px;
+  padding: 2px 9px;
+  letter-spacing: 0.03em;
+}
+
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 28px 0 16px;
+  text-align: center;
+}
+
+.emptyMsg {
+  font-family: 'Playfair Display', serif;
+  font-size: 14px;
+  color: var(--text-body);
+  margin: 0 0 4px;
+  opacity: 0.5;
+}
+
+.emptyHint {
+  font-family: 'Lora', serif;
+  font-size: 11.5px;
+  color: var(--text-meta);
+  font-style: italic;
+  margin: 0;
+  opacity: 0.7;
+}
+
+.rosterList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.rosterRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  background: var(--bg-footer);
+  border: 1px solid var(--border-footer);
+  border-radius: 12px;
+  transition: box-shadow 0.18s;
+}
+
+.rosterRow:hover {
+  box-shadow: var(--shadow-hover);
+}
+
+/* Shrink the ActorCard inside the roster */
+.actorWrap {
+  flex-shrink: 0;
+  transform: scale(0.82);
+  transform-origin: left center;
+  width: 170px;
+}
+
+.arrow {
+  color: var(--text-meta);
+  flex-shrink: 0;
+  opacity: 0.5;
+}
+
+.charInfo {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.charName {
+  font-family: 'Playfair Display', serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-body);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.charRole {
+  font-family: 'Lora', serif;
+  font-size: 11px;
+  color: var(--text-meta);
+  font-style: italic;
+}
+
+.removeBtn {
+  background: none;
+  border: none;
+  font-family: 'Lora', serif;
+  font-size: 11px;
+  color: var(--text-meta);
+  cursor: pointer;
+  padding: 0;
+  text-align: left;
+  letter-spacing: 0.02em;
+  transition: color 0.15s;
+  width: fit-content;
+}
+
+.removeBtn:hover {
+  color: #c47a7a;
+}

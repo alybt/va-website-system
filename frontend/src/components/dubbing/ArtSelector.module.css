@@ -1,0 +1,361 @@
+/* frontend/src/components/dubbing/ArtSelector.module.css */
+
+.panel {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: 14px;
+  padding: 20px 18px;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* ── Dropdown ── */
+.dropdownWrap {
+  margin-bottom: 16px;
+}
+
+.dropdownLabel {
+  display: block;
+  font-family: 'Lora', serif;
+  font-size: 11px;
+  color: var(--text-meta);
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  margin-bottom: 6px;
+}
+
+.selectWrap {
+  position: relative;
+}
+
+.select {
+  width: 100%;
+  appearance: none;
+  background: var(--bg-footer);
+  border: 1px solid var(--border-card);
+  border-radius: 8px;
+  padding: 9px 34px 9px 12px;
+  font-family: 'Lora', serif;
+  font-size: 13px;
+  color: var(--text-body);
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.18s;
+}
+
+.select:focus {
+  border-color: var(--accent);
+}
+
+.chevron {
+  position: absolute;
+  right: 11px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-meta);
+  pointer-events: none;
+}
+
+/* ── Art meta ── */
+.artMeta {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.artMetaLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.artTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text-body);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.artGenre {
+  font-family: 'Lora', serif;
+  font-size: 12px;
+  color: var(--text-meta);
+  font-style: italic;
+}
+
+.artTypeBadge {
+  font-family: 'Lora', serif;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 20px;
+  letter-spacing: 0.05em;
+  flex-shrink: 0;
+}
+
+/* ── Progress ── */
+.progress {
+  margin-bottom: 14px;
+}
+
+.progressMeta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.progressLabel {
+  font-family: 'Lora', serif;
+  font-size: 10px;
+  color: var(--text-meta);
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.progressRight {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.progressCount {
+  font-family: 'Lora', serif;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-body);
+}
+
+.clearBtn {
+  font-family: 'Lora', serif;
+  font-size: 10.5px;
+  color: #c47a7a;
+  background: none;
+  border: 1px solid rgba(196, 122, 122, 0.3);
+  border-radius: 6px;
+  padding: 2px 8px;
+  cursor: pointer;
+  transition: background 0.18s, border-color 0.18s;
+}
+
+.clearBtn:hover {
+  background: rgba(196, 122, 122, 0.08);
+  border-color: #c47a7a;
+}
+
+.progressTrack {
+  height: 5px;
+  border-radius: 3px;
+  background: var(--border-card);
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--btn-bg), var(--accent));
+  border-radius: 3px;
+  transition: width 0.4s ease;
+}
+
+/* ── Divider ── */
+.divider {
+  height: 1px;
+  background: var(--border-card);
+  margin-bottom: 16px;
+}
+
+/* ── Characters heading ── */
+.charsHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.charsTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-body);
+  margin: 0;
+}
+
+.charsCount {
+  font-family: 'Lora', serif;
+  font-size: 11px;
+  color: var(--text-meta);
+  background: var(--bg-footer);
+  border: 1px solid var(--border-footer);
+  border-radius: 20px;
+  padding: 2px 9px;
+}
+
+/* ── Empty / state messages ── */
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px 0 16px;
+  text-align: center;
+}
+
+.emptyMsg {
+  font-family: 'Lora', serif;
+  font-size: 13px;
+  color: var(--text-meta);
+  font-style: italic;
+  margin: 0;
+  max-width: 260px;
+  line-height: 1.6;
+}
+
+.stateMsg {
+  font-family: 'Lora', serif;
+  font-size: 13px;
+  color: var(--text-meta);
+  font-style: italic;
+  margin: 8px 0;
+}
+
+.errorMsg {
+  color: #c47a7a;
+}
+
+/* ── Character slots ── */
+.slotList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.slot {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--border-card);
+  background: var(--bg-card);
+  transition: border-color 0.18s, background 0.18s;
+}
+
+.slotOver {
+  border: 1.5px dashed var(--accent);
+  background: rgba(212, 175, 95, 0.05);
+}
+
+.slotCharInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.slotNameRow {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 4px;
+}
+
+.slotCharName {
+  font-family: 'Playfair Display', serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-body);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.slotGender {
+  color: var(--text-meta);
+  flex-shrink: 0;
+}
+
+.slotAge {
+  font-family: 'Lora', serif;
+  font-size: 10.5px;
+  color: var(--text-meta);
+  flex-shrink: 0;
+}
+
+.slotRoleBadge {
+  display: inline-block;
+  border-radius: 20px;
+  padding: 1px 8px;
+  font-size: 10.5px;
+  font-family: 'Lora', serif;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+/* ── Assignment slot ── */
+.slotAssign {
+  flex-shrink: 0;
+  min-width: 130px;
+}
+
+.assignedPill {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--bg-footer);
+  border: 1px solid var(--border-footer);
+  border-radius: 8px;
+  padding: 5px 8px;
+}
+
+.assignedActorName {
+  font-family: 'Lora', serif;
+  font-size: 12px;
+  color: var(--text-body);
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.unassignBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-meta);
+  padding: 0;
+  line-height: 1;
+  font-size: 14px;
+  flex-shrink: 0;
+  transition: color 0.15s;
+}
+
+.unassignBtn:hover {
+  color: #c47a7a;
+}
+
+.dropZone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  border: 1.5px dashed var(--border-card);
+  border-radius: 8px;
+  padding: 6px 10px;
+  font-family: 'Lora', serif;
+  font-size: 10.5px;
+  color: var(--text-meta);
+  letter-spacing: 0.03em;
+  opacity: 0.55;
+  transition: opacity 0.18s, border-color 0.18s;
+}
+
+.dropZoneOver {
+  opacity: 1;
+  border-color: var(--accent);
+  color: var(--text-body);
+}
