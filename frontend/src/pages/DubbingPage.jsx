@@ -1,5 +1,3 @@
-// frontend/src/pages/DubbingPage.jsx
-
 import { useState } from "react";
 import { useActors }         from "../hooks/useActors";
 import { useCharacters }     from "../hooks/useCharacters";
@@ -98,18 +96,18 @@ export default function DubbingPage() {
       <div className={styles.layout}>
 
         <div className={styles.leftCol}>
-          <ActorPool
-            actors={actors}
-            loading={actorsLoading}
-            error={actorsError}
-            participatingIds={participatingIds}
-          />
-
           <ParticipatingRoster
             actors={actors}
             participatingIds={participatingIds}
             onAdd={handleAddParticipant}
             onRemove={handleRemoveParticipant}
+          />
+
+          <ActorPool
+            actors={actors}
+            loading={actorsLoading}
+            error={actorsError}
+            participatingIds={participatingIds}
           />
         </div>
 
