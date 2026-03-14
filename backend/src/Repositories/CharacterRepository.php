@@ -47,19 +47,26 @@ class CharacterRepository {
     }
 
     public function findByArt(int $artId): array {
-        $stmt = $this->db->prepare(
-            'SELECT c.*
-                FROM characters c
-                INNER JOIN art_characters ac ON ac.character_id = c.character_id
-                WHERE ac.art_id = :art_id AND c.is_deleted = 0
-                ORDER BY
-                    FIELD(c.role, "Main Cast", "Supporting", "Extra"),
-                    c.name ASC'
-        );
+        $stmt = $this->db->prepare("
+            SELECT c.character_id,
+                    c.name,
+                    c.gender,
+                    c.age,
+                    c.description,
+                    c.role,
+                    c.pic
+            FROM   characters c
+            INNER  JOIN art_characters ac ON ac.character_id = c.character_id
+            WHERE  ac.art_id    = :art_id
+                AND  c.is_deleted = 0
+            ORDER  BY
+                    FIELD(c.role, 'Main Cast', 'Supporting', 'Extra'),
+                    c.name ASC
+        ");
         $stmt->execute([':art_id' => $artId]);
 
         return array_map(
-            fn($row) => (new Character($row))->toArray(),
+            fn(array $row) => Character::fromRow($row),
             $stmt->fetchAll()
         );
     }
