@@ -7,11 +7,17 @@ class SequentialArtRepository {
     public function __construct(private PDO $db) {}
 
     public function findAll(): array {
-        $stmt = $this->db->prepare(
-            'SELECT * FROM sequential_art WHERE is_deleted = 0 ORDER BY title ASC'
+        $stmt = $this->db->query("
+            SELECT art_id, title, genre, type
+            FROM   sequential_art
+            WHERE  is_deleted = 0
+            ORDER  BY title ASC
+        "); 
+        
+        return array_map(
+            fn(array $row) => SequentialArt::fromRow($row),
+            $stmt->fetchAll()
         );
-        $stmt->execute();
-        return $stmt->fetchAll();
     }
 
     public function findById(int $id): ?array {
